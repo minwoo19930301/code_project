@@ -2,7 +2,17 @@ package com.example.fakeyolo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import java.util.List;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -10,6 +20,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        final TextView textView = (TextView) findViewById(R.id.touch);
+        Button share =  (Button) findViewById(R.id.share);
+        Button random = (Button) findViewById(R.id.button);
+        Button color = (Button) findViewById(R.id.button2);
+        Button text = (Button) findViewById(R.id.button3);
+        Button zep = (Button) findViewById(R.id.button4);
+
+
 
 
         random.setOnClickListener(new View.OnClickListener(){
