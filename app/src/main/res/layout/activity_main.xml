@@ -75,4 +75,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="130dp"
+        android:layout_height="136dp"
+        app:srcCompat="@android:color/background_light"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="452dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
