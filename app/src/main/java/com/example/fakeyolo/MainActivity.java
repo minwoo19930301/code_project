@@ -9,12 +9,19 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.JsonReader;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -41,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         Button color = (Button) findViewById(R.id.button2);
         Button text = (Button) findViewById(R.id.button3);
         Button zep = (Button) findViewById(R.id.button4);
+        image = (ImageView) findViewById(R.id.imageView);
 
 
 
@@ -66,9 +74,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ContentValues values = new ContentValues();
                 String url = "https://openapi.zepeto.io/graphics/booth/PHOTOBOOTH_ONE_167?targets=MYKURU&service=zepeto&width=400";
-                values.put("hashcode", "MYKURU");
-                values.put("photoboothTitle", "PHOTOBOOTH_ONE_167");
-                values.put("width", 30);
+                //values.put("키":값);
                 NetworkTask networkTask = new NetworkTask(url, values);
                 networkTask.execute();
 
@@ -238,10 +244,14 @@ public class MainActivity extends AppCompatActivity {
             return result; // 결과가 여기에 담깁니다. 아래 onPostExecute()의 파라미터로 전달됩니다.
         }
 
+
+
         @Override
         protected void onPostExecute(String result) {
             // 통신이 완료되면 호출됩니다.
             // 결과에 따른 UI 수정 등은 여기서 합니다.
+            image.setImageURI(result);
+            JsonReader
             Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
             Log.e("result", result);
         }
